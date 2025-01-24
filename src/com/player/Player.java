@@ -1,6 +1,6 @@
 package com.player;
 
-import java.sql.Date;
+import java.util.Date;
 
 /**
  * Class for creating "Player" instances
@@ -59,7 +59,7 @@ public class Player {
 
 /**
  * Getter for player name
- * @return
+ * @return player's name
  */
     public String getName() {
         return name;
@@ -67,15 +67,18 @@ public class Player {
 
 /**
  * Setter for player name
- * @param name
+ * @param name - player's name
  */
     public void setName(String name) {
         this.name = name;
+        if (name.equals("") || name == null) {
+            System.out.println("Player name is required");
+        }
     }
 
 /**
  * Getter for player's birthday
- * @return
+ * @return player's birthday
  */
     public Date getBirthday() {
         return birthday;
@@ -83,15 +86,18 @@ public class Player {
 
 /**
  * Setter for player's birthday
- * @param birthday
+ * @param birthday - player's birthday
  */
     public void setBirthday(Date birthday) {
         this.birthday = birthday;
+        if (birthday == null) {
+            System.out.println("Birthday is required");
+        }
     }
 
 /**
  * Getter for player's country of origin
- * @return
+ * @return player's country of origin
  */
     public String getOriginCountry() {
         return originCountry;
@@ -99,15 +105,18 @@ public class Player {
 
 /**
  * Setter for player's country of origin
- * @param originCountry
+ * @param originCountry - player's country of origin
  */
     public void setOriginCountry(String originCountry) {
         this.originCountry = originCountry;
+        if (originCountry.equals("")) {
+            System.out.println("Country of origin is required");
+        }
     }
 
 /**
  * Getter for player's position
- * @return
+ * @return player's position
  */
     public Position getPosition() {
         return position;
@@ -115,15 +124,18 @@ public class Player {
 
 /**
  * Setter for player's position
- * @param position
+ * @param position - player's position
  */
     public void setPosition(Position position) {
         this.position = position;
+        if (position == null) {
+            System.out.println("Position is required");
+        }
     }
 
 /**
  * Getter for player's squad number
- * @return
+ * @return player's squad number
  */
     public int getSquadNumber() {
         return squadNumber;
@@ -131,15 +143,18 @@ public class Player {
 
 /**
  * Setter for player's squad number
- * @param squadNumber
+ * @param squadNumber - player's squad number
  */
     public void setSquadNumber(int squadNumber) {
         this.squadNumber = squadNumber;
+        if (squadNumber < 0) {
+            System.out.println("Squad number can't be less than zero");
+        }
     }
 
 /**
  * Getter for player's transfer status
- * @return
+ * @return player's transfer status
  */
     public TransferStatus getTransferStatus() {
         return transferStatus;
@@ -147,10 +162,14 @@ public class Player {
 
 /**
  * Setter for player's transfer status
- * @param transferStatus
+ * @param transferStatus - player's transfer status
  */
     public void setTransferStatus(TransferStatus transferStatus) {
         this.transferStatus = transferStatus;
+        if (transferStatus == null) {
+            System.out.println("Transfer status is required");
+        }
+        System.out.println("Player " + name + " was created.");
     }
 
     
