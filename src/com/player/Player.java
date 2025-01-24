@@ -1,13 +1,13 @@
 package com.player;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 /**
  * Class for creating "Player" instances
  */
 public class Player {
     private String name;
-    private Date birthday;
+    private LocalDate birthday;
     private String originCountry;
     private Position position;
     private int squadNumber;
@@ -24,7 +24,7 @@ public class Player {
      */
     public Player(
         String name,
-        Date birthday,
+        LocalDate birthday,
         String originCountry,
         Position position,
         int squadNumber,
@@ -80,7 +80,7 @@ public class Player {
  * Getter for player's birthday
  * @return player's birthday
  */
-    public Date getBirthday() {
+    public LocalDate getBirthday() {
         return birthday;
     }
 
@@ -88,7 +88,7 @@ public class Player {
  * Setter for player's birthday
  * @param birthday - player's birthday
  */
-    public void setBirthday(Date birthday) {
+    public void setBirthday(LocalDate birthday) {
         this.birthday = birthday;
         if (birthday == null) {
             System.out.println("Birthday is required");
@@ -171,6 +171,12 @@ public class Player {
         }
         System.out.println("Player " + name + " was created.");
     }
+
+@Override
+public String toString() {
+    return "Player [name=" + name + ", birthday=" + birthday + ", originCountry=" + originCountry + ", position="
+            + position + ", squadNumber=" + squadNumber + ", transferStatus=" + transferStatus + "]";
+}
 
     
 }
