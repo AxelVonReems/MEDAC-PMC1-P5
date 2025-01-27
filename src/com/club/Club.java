@@ -55,5 +55,11 @@ public class Club {
         this.abbreviation = abbreviation;
     }
 
-    
+    /**
+     * toString method for Clubs
+     */
+    @Override
+    public String toString() {
+        return "Club [name=" + name + ", abbreviation=" + abbreviation + "]";
+    }
 }

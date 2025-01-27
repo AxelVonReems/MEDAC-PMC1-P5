@@ -56,6 +56,9 @@ public class Coach {
         this.formation = formation;
     }
 
+    /**
+     * toString method for Coaches
+     */
     @Override
     public String toString() {
         return "Coach [name=" + name + ", formation=" + formation + "]";

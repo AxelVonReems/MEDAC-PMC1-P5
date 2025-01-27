@@ -57,18 +57,18 @@ public class Player {
         System.out.println("Player " + name + " was created.");
     }
 
-/**
- * Getter for player name
- * @return player's name
- */
+    /**
+     * Getter for player name
+     * @return player's name
+     */
     public String getName() {
         return name;
     }
 
-/**
- * Setter for player name
- * @param name - player's name
- */
+    /**
+     * Setter for player name
+     * @param name - player's name
+     */
     public void setName(String name) {
         this.name = name;
         if (name.equals("") || name == null) {
@@ -76,18 +76,18 @@ public class Player {
         }
     }
 
-/**
- * Getter for player's birthday
- * @return player's birthday
- */
+    /**
+     * Getter for player's birthday
+     * @return player's birthday
+     */
     public LocalDate getBirthday() {
         return birthday;
     }
 
-/**
- * Setter for player's birthday
- * @param birthday - player's birthday
- */
+    /**
+     * Setter for player's birthday
+     * @param birthday - player's birthday
+     */
     public void setBirthday(LocalDate birthday) {
         this.birthday = birthday;
         if (birthday == null) {
@@ -95,18 +95,18 @@ public class Player {
         }
     }
 
-/**
- * Getter for player's country of origin
- * @return player's country of origin
- */
+    /**
+     * Getter for player's country of origin
+     * @return player's country of origin
+     */
     public String getOriginCountry() {
         return originCountry;
     }
 
-/**
- * Setter for player's country of origin
- * @param originCountry - player's country of origin
- */
+    /**
+     * Setter for player's country of origin
+     * @param originCountry - player's country of origin
+     */
     public void setOriginCountry(String originCountry) {
         this.originCountry = originCountry;
         if (originCountry.equals("")) {
@@ -114,18 +114,18 @@ public class Player {
         }
     }
 
-/**
- * Getter for player's position
- * @return player's position
- */
+    /**
+     * Getter for player's position
+     * @return player's position
+     */
     public Position getPosition() {
         return position;
     }
 
-/**
- * Setter for player's position
- * @param position - player's position
- */
+    /**
+     * Setter for player's position
+     * @param position - player's position
+     */
     public void setPosition(Position position) {
         this.position = position;
         if (position == null) {
@@ -133,18 +133,18 @@ public class Player {
         }
     }
 
-/**
- * Getter for player's squad number
- * @return player's squad number
- */
+    /**
+     * Getter for player's squad number
+     * @return player's squad number
+     */
     public int getSquadNumber() {
         return squadNumber;
     }
 
-/**
- * Setter for player's squad number
- * @param squadNumber - player's squad number
- */
+    /**
+     * Setter for player's squad number
+     * @param squadNumber - player's squad number
+     */
     public void setSquadNumber(int squadNumber) {
         this.squadNumber = squadNumber;
         if (squadNumber < 0) {
@@ -152,18 +152,18 @@ public class Player {
         }
     }
 
-/**
- * Getter for player's transfer status
- * @return player's transfer status
- */
+    /**
+     * Getter for player's transfer status
+     * @return player's transfer status
+     */
     public TransferStatus getTransferStatus() {
         return transferStatus;
     }
 
-/**
- * Setter for player's transfer status
- * @param transferStatus - player's transfer status
- */
+    /**
+     * Setter for player's transfer status
+     * @param transferStatus - player's transfer status
+     */
     public void setTransferStatus(TransferStatus transferStatus) {
         this.transferStatus = transferStatus;
         if (transferStatus == null) {
@@ -171,11 +171,12 @@ public class Player {
         }
     }
 
-@Override
-public String toString() {
-    return "Player [name=" + name + ", birthday=" + birthday + ", originCountry=" + originCountry + ", position="
-            + position + ", squadNumber=" + squadNumber + ", transferStatus=" + transferStatus + "]";
-}
-
-    
+    /**
+     * toString method for Players
+     */
+    @Override
+    public String toString() {
+        return "Player [name=" + name + ", birthday=" + birthday + ", originCountry=" + originCountry + ", position="
+                + position + ", squadNumber=" + squadNumber + ", transferStatus=" + transferStatus + "]";
+    }
 }

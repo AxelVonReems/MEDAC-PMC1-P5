@@ -62,6 +62,9 @@ public class President {
         }
     }
 
+    /**
+     * toString method for Presidents
+     */
     @Override
     public String toString() {
         return "President [dni=" + dni + ", name=" + name + "]";
