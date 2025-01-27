@@ -169,7 +169,6 @@ public class Player {
         if (transferStatus == null) {
             System.out.println("Transfer status is required");
         }
-        System.out.println("Player " + name + " was created.");
     }
 
 @Override

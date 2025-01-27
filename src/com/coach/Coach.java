@@ -21,6 +21,7 @@ public class Coach {
         if (formation == null) {
             System.out.println("Formation is required");
         }
+        System.out.println("Coach " + name + " was created.");
     }
 
     /**
@@ -55,5 +56,8 @@ public class Coach {
         this.formation = formation;
     }
 
-    
+    @Override
+    public String toString() {
+        return "Coach [name=" + name + ", formation=" + formation + "]";
+    }
 }
