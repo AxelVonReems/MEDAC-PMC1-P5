@@ -21,6 +21,7 @@ public class President {
         if (name.equals("") || name == null) {
             System.out.println("President name is required");
         }
+        System.out.println("President " + name + " was created.");
     }
 
     /**
@@ -61,5 +62,11 @@ public class President {
         }
     }
 
-    
+    /**
+     * toString method for Presidents
+     */
+    @Override
+    public String toString() {
+        return "President [dni=" + dni + ", name=" + name + "]";
+    }
 }
