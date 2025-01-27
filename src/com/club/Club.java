@@ -1,16 +1,27 @@
 package com.club;
 
+import java.util.ArrayList;
+
+import com.coach.Coach;
+import com.player.Player;
+import com.president.President;
+
 /**
  * Class for creating "Club" instances
  */
 public class Club {
     private String name;
     private String abbreviation;
+    private ArrayList<Player> playerList;
+    private Coach coach;
+    private President president;
 
     /**
      * "Club" constructor class
      * @param name - club's name
      * @param abbreviation - club's abbreviation
+     * @param coach - club's coach
+     * @param president - club's president
      */
     public Club(String name, String abbreviation) {
         this.name = name;
@@ -56,10 +67,66 @@ public class Club {
     }
 
     /**
+     * Getter for club's player list
+     * @return
+     */
+    public ArrayList<Player> getPlayerList() {
+        return playerList;
+    }
+
+    /**
+     * Setter for club's player list
+     * @param playerList - club's player list
+     */
+    public void setPlayerList(ArrayList<Player> playerList) {
+        this.playerList = playerList;
+    }
+
+    /**
+     * Getter for club's coach
+     * @return club's coach
+     */
+    public Coach getCoach() {
+        return coach;
+    }
+
+    /**
+     * Setter for club's coach
+     * @param coach - club's coach
+     */
+    public void setCoach(Coach coach) {
+        this.coach = coach;
+    }
+
+    /**
+     * Getter for club's president
+     * @return club's president
+     */
+    public President getPresident() {
+        return president;
+    }
+
+    /**
+     * Setter for club's president
+     * @param president - club's president
+     */
+    public void setPresident(President president) {
+        this.president = president;
+    }
+
+
+
+
+
+    
+    /**
      * toString method for Clubs
      */
     @Override
     public String toString() {
         return "Club [name=" + name + ", abbreviation=" + abbreviation + "]";
     }
+
+
+
 }

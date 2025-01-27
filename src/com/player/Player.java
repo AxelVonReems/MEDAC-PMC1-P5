@@ -2,6 +2,8 @@ package com.player;
 
 import java.time.LocalDate;
 
+import com.club.Club;
+
 /**
  * Class for creating "Player" instances
  */
@@ -12,6 +14,7 @@ public class Player {
     private Position position;
     private int squadNumber;
     private TransferStatus transferStatus;
+    private Club club;
 
     /**
      * "Player" constructor class
@@ -21,6 +24,7 @@ public class Player {
      * @param position - player's preferred position
      * @param squadNumber - player's squad number
      * @param transferStatus - player's transfer status
+     * @param club - player's current club
      */
     public Player(
         String name,
@@ -28,7 +32,8 @@ public class Player {
         String originCountry,
         Position position,
         int squadNumber,
-        TransferStatus transferStatus
+        TransferStatus transferStatus,
+        Club club
     ) {
         this.name = name;
         this.birthday = birthday;
@@ -36,6 +41,7 @@ public class Player {
         this.position = position;
         this.squadNumber = squadNumber;
         this.transferStatus = transferStatus;
+        this.club = club;
         if (name.equals("") || name == null) {
             System.out.println("Player name is required");
         }
@@ -53,6 +59,9 @@ public class Player {
         }
         if (transferStatus == null) {
             System.out.println("Transfer status is required");
+        }
+        if (club == null) {
+            System.out.println("Club is required");
         }
         System.out.println("Player " + name + " was created.");
     }
@@ -172,11 +181,29 @@ public class Player {
     }
 
     /**
+     * Getter for player's current club
+     * @return player's current club
+     */
+    public Club getClub() {
+        return club;
+    }
+
+    /**
+     * Setter for player's current club
+     * @param club - player's current club
+     */
+    public void setClub(Club club) {
+        this.club = club;
+    }
+
+
+        /**
      * toString method for Players
      */
     @Override
     public String toString() {
         return "Player [name=" + name + ", birthday=" + birthday + ", originCountry=" + originCountry + ", position="
-                + position + ", squadNumber=" + squadNumber + ", transferStatus=" + transferStatus + "]";
+                + position + ", squadNumber=" + squadNumber + ", transferStatus=" + transferStatus + ", club=" + club
+                + "]";
     }
 }
