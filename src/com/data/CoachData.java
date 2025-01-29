@@ -23,21 +23,21 @@ public class CoachData {
     // Rayo Vallecano
     public Coach Iñigo_Perez;
 
-    public CoachData() {
+    public CoachData(ClubData club) {
 
         // Barcelona
-        Hansi_Flick = new Coach("Hansi Flick", Formation._3_5_2_);
+        Hansi_Flick = new Coach("Hansi Flick", Formation._3_5_2_, club.Barcelona);
 
         // Real Madrid
-        Ancelotti = new Coach("Ancelotti", Formation._4_1_4_1_);
+        Ancelotti = new Coach("Ancelotti", Formation._4_1_4_1_, club.Real_Madrid);
 
         // Atlético Madrid
-        Simeone = new Coach("Simeone", Formation._4_2_2_);
+        Simeone = new Coach("Simeone", Formation._4_2_2_, club.Atletico_Madrid);
 
         // Celta Vigo
-        Claudio_Giraldez = new Coach("Claudio Giraldez", Formation._4_2_3_1_);
+        Claudio_Giraldez = new Coach("Claudio Giraldez", Formation._4_2_3_1_, club.Celta_Vigo);
 
         // Rayo Vallecano
-        Iñigo_Perez = new Coach("Iñigo Perez", Formation._4_3_3_);
+        Iñigo_Perez = new Coach("Iñigo Perez", Formation._4_3_3_, club.Rayo_Vallecano);
     }
 }
