@@ -91,6 +91,6 @@ public class President {
      */
     @Override
     public String toString() {
-        return "President [dni=" + dni + ", name=" + name + ", club=" + club + "]";
+        return "President [dni=" + dni + ", name=" + name + ", club=" + club.getName() + "]";
     }
 }

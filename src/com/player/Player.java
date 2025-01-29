@@ -188,6 +188,7 @@ public class Player {
         return club;
     }
 
+    
     /**
      * Setter for player's current club
      * @param club - player's current club
@@ -197,13 +198,12 @@ public class Player {
     }
 
 
-        /**
+    /**
      * toString method for Players
      */
     @Override
     public String toString() {
-        return "Player [name=" + name + ", birthday=" + birthday + ", originCountry=" + originCountry + ", position="
-                + position + ", squadNumber=" + squadNumber + ", transferStatus=" + transferStatus + ", club=" + club
-                + "]";
+        return "Player [name=" + name + ", birthday=" + birthday + ", originCountry=" + originCountry + ", position=" +
+        position + ", squadNumber=" + squadNumber + ", transferStatus=" + transferStatus + ", club=" + club.getName() + "]";
     }
 }

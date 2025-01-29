@@ -114,18 +114,19 @@ public class Club {
         this.president = president;
     }
 
-
-
-
-
-    
     /**
      * toString method for Clubs
      */
     @Override
     public String toString() {
-        return "Club [name=" + name + ", abbreviation=" + abbreviation + "]";
+        return "Club [name=" + name + ", abbreviation=" + abbreviation + ", playerList=" + playerList + ", coach="
+                + coach + ", president=" + president + "]";
     }
+
+
+
+
+
 
 
 

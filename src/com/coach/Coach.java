@@ -85,6 +85,7 @@ public class Coach {
      */
     @Override
     public String toString() {
-        return "Coach [name=" + name + ", formation=" + formation + ", club=" + club + "]";
+        return "Coach [name=" + name + ", formation=" + formation + ", club=" + club.getName() + "]";
     }
+
 }
