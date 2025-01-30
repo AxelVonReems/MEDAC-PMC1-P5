@@ -1,6 +1,8 @@
 package com.coach;
 
 import com.club.Club;
+import com.player.Player;
+import com.player.TransferStatus;
 
 /**
  * Class for creating "Coach" instances
@@ -105,5 +107,32 @@ public class Coach {
     @Override
     public String toString() {
         return "Coach [name=" + name + ", formation=" + formation + ", club=" + club.getName() + "]";
+    }
+
+    /**
+     * Method for transfer decision by a club's coach
+     * @param player - player that requested a transfer
+     * @param coach - coach, that will make the decision
+     * @param coachDecision - coach's decision: 0 - reject, 1 - approve
+     */
+    public  void transferCoachDecision(Player player, int coachDecision) {
+        if (
+            player.getTransferStatus() == TransferStatus.REQUESTED &&
+            player.getClub().getName().equals(this.getClub().getName()) &&
+            coachDecision == 1) {
+            player.setTransferStatus(TransferStatus.APPROVED_BY_COACH);
+            System.out.println("Transfer of " + player.getName() + " was approved by " + this.getName());
+        } else if (
+            player.getTransferStatus() == TransferStatus.REQUESTED &&
+            player.getClub().getName().equals(this.getClub().getName()) &&
+            coachDecision == 0
+        ) {
+            player.setTransferStatus(TransferStatus.REJECTED_BY_COACH);
+            System.out.println("Transfer of " + player.getName() + " was rejected by " + this.getName());
+        } else if (player.getTransferStatus() != TransferStatus.REQUESTED) {
+            System.out.println("Player " + player.getName() + " haven't requested transfer or was previously rejected");
+        } else if (!player.getClub().getName().equals(this.getClub().getName())) {
+            System.out.println("Player " + player.getName() + " and coach " + this.getName() + " are from different clubs");
+        }
     }
 }

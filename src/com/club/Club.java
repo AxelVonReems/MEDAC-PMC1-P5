@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import com.coach.Coach;
 import com.player.Player;
+import com.player.TransferStatus;
 import com.president.President;
 
 /**
@@ -141,5 +142,52 @@ public class Club {
     public String toString() {
         return "Club [name=" + name + ", abbreviation=" + abbreviation + ", playerList=" + playerList + ", coach="
                 + coach + ", president=" + president + "]";
+    }
+
+    /**
+     * Method for printing players list for a Club instance
+     */
+    public void playerNamesList() {
+        System.out.print("Players list of club " + this.getPlayerList().get(0).getClub().getName() + " :");
+        this.getPlayerList().forEach( (n) -> { System.out.print(n.getName() + ", "); } );
+        System.out.println();
+    }
+
+    /**
+     * Method for processing fully approved player transfer
+     * @param player - player approved for transfer
+     */
+    public void approvedPlayerTransfer(Player player) {
+        if (player.getTransferStatus() == TransferStatus.APPROVED_BY_PRESIDENT) {
+            player.playerTransfer(this);
+            player.setTransferStatus(TransferStatus.WITHOUT_REQUEST);
+            System.out.println("Transfer of " + player.getName() + " to " + this.getName() + " was approved");
+        } else {
+            String message = "";
+            if (player.getTransferStatus() == TransferStatus.REJECTED_BY_COACH) {
+                message = "rejected by coach " + player.getClub().getCoach().getName();
+            } else if (player.getTransferStatus() == TransferStatus.REJECTED_BY_PRESIDENT) {
+                message = "rejected by president " + player.getClub().getPresident().getName();
+            } else {
+                message = "previously rejected or wasn't requested";
+            }
+            System.out.println(
+                "Transfer of " + player.getName() + " to " + this.getName() + " was " + message
+                );
+        }
+    }
+
+    /**
+     * Method to reset transfer status for club's players that previously were rejected for transfer
+     */
+    public void resetTransferStatus() {
+        for (Player player : this.getPlayerList()) {
+            if (
+                player.getTransferStatus() == TransferStatus.REJECTED_BY_COACH ||
+                player.getTransferStatus() == TransferStatus.REJECTED_BY_PRESIDENT
+                ) {
+                player.setTransferStatus(TransferStatus.WITHOUT_REQUEST);
+            }
+        }
     }
 }

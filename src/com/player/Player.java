@@ -224,4 +224,31 @@ public class Player {
     public static void setPlayerCounter(int playerCounter) {
         Player.playerCounter = playerCounter;
     }
+
+    /**
+     * Method for player transfer without confirmation
+     * @param newClub - club, to which player will pe transfered
+     */
+    public void playerTransfer(Club newClub) {
+        this.getClub().getPlayerList().remove(this);
+        newClub.getPlayerList().add(this);
+        this.setClub(newClub);
+    }
+
+    /**
+     * Method to request player transfer
+     * @param newClub - club, to which player will pe transfered
+     */
+    public void playerTransferRequest(Club newClub) {
+        if (this.getClub().getName().equals(newClub.getName())) {
+            System.out.println("Player " + this.getName() + " already playing for club " + newClub.getName());
+        } else if (
+            this.getTransferStatus() == TransferStatus.REJECTED_BY_COACH ||
+            this.getTransferStatus() == TransferStatus.REJECTED_BY_PRESIDENT) {
+            System.out.println("Transfer of " + this.getName() + " was already rejected previously");
+        } else {
+            this.setTransferStatus(TransferStatus.REQUESTED);
+            System.out.println("Player " + this.getName() + " has requested transfer to club " + newClub.getName());
+        }
+    }
 }
