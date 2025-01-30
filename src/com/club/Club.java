@@ -68,7 +68,7 @@ public class Club {
 
     /**
      * Getter for club's player list
-     * @return
+     * @return club's player list
      */
     public ArrayList<Player> getPlayerList() {
         return playerList;
@@ -122,12 +122,4 @@ public class Club {
         return "Club [name=" + name + ", abbreviation=" + abbreviation + ", playerList=" + playerList + ", coach="
                 + coach + ", president=" + president + "]";
     }
-
-
-
-
-
-
-
-
 }

@@ -87,5 +87,4 @@ public class Coach {
     public String toString() {
         return "Coach [name=" + name + ", formation=" + formation + ", club=" + club.getName() + "]";
     }
-
 }
