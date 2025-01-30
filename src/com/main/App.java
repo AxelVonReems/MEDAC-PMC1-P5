@@ -113,8 +113,18 @@ public class App {
         transferPresidentDecision(players.Griezmann, presidents.Enrique_Cerezo, presidentDecision);
         System.out.println(players.Griezmann.getTransferStatus());
 
+        // Player transfer if approved
+        approvedPlayerTransfer(players.Griezmann, clubs.Real_Madrid);
+        System.out.println("Current club is " + players.Griezmann.getClub().getName());
 
+        // Printing player's current club and club lineups to verify correct transfer
+        System.out.println(players.Griezmann.getClub().getName());
+        playerNamesList(clubs.Atletico_Madrid);
+        playerNamesList(clubs.Real_Madrid);
 
+        // Resetting transfer status for all players that were previously rejected
+        resetTransferStatus(clubs.Atletico_Madrid);
+        System.out.println(players.Griezmann.getTransferStatus());
     }
 
     static void playerTransfer(Player player, Club newClub) {
@@ -184,8 +194,32 @@ public class App {
         }
     }
 
+    static void approvedPlayerTransfer(Player player, Club newClub) {
+        if (player.getTransferStatus() == TransferStatus.APPROVED_BY_PRESIDENT) {
+            playerTransfer(player, newClub);
+            player.setTransferStatus(TransferStatus.WITHOUT_REQUEST);
+            System.out.println("Transfer of " + player.getName() + " to " + newClub.getName() + " was approved");
+        } else {
+            String message = "";
+            if (player.getTransferStatus() == TransferStatus.REJECTED_BY_COACH) {
+                message = "coach " + player.getClub().getCoach().getName();
+            } else if (player.getTransferStatus() == TransferStatus.REJECTED_BY_PRESIDENT) {
+                message = "president " + player.getClub().getPresident().getName();
+            }
+            System.out.println(
+                "Transfer of " + player.getName() + " to " + newClub.getName() + " was rejected by " + message
+                );
+        }
+    }
 
-
-
-
+    static void resetTransferStatus(Club club) {
+        for (Player player : club.getPlayerList()) {
+            if (
+                player.getTransferStatus() == TransferStatus.REJECTED_BY_COACH ||
+                player.getTransferStatus() == TransferStatus.REJECTED_BY_PRESIDENT
+                ) {
+                player.setTransferStatus(TransferStatus.WITHOUT_REQUEST);
+            }
+        }
+    }
 }
