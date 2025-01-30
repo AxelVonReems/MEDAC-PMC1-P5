@@ -9,12 +9,14 @@ public class President {
     private String dni;
     private String name;
     private Club club;
+    private static int presidentCounter;
 
     /**
      * "President" constructor class
      * @param dni - president's DNI
      * @param name - president's name
      * @param club - president's current club
+     * @param presidentCounter - counter for created President instances
      */
     public President(String dni, String name, Club club) {
         this.dni = dni;
@@ -30,6 +32,7 @@ public class President {
             System.out.println("President club is required");
         }
         System.out.println("President " + name + " was created.");
+        presidentCounter += 1;
     }
 
     /**
@@ -84,6 +87,22 @@ public class President {
      */
     public void setClub(Club club) {
         this.club = club;
+    }
+
+    /**
+     * Getter for counter for created President instances
+     * @return counter for created President instances
+     */
+    public static int getPresidentCounter() {
+        return presidentCounter;
+    }
+
+    /**
+     * Setter for counter for created President instances
+     * @param presidentCounter - counter for created President instances
+     */
+    public static void setPresidentCounter(int presidentCounter) {
+        President.presidentCounter = presidentCounter;
     }
 
     /**

@@ -40,5 +40,4 @@ public class ClubData {
         // Rayo Vallecano
         Rayo_Vallecano = new Club("Rayo Vallecano", "RVC");
     }
-
 }

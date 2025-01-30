@@ -15,6 +15,7 @@ public class Club {
     private ArrayList<Player> playerList;
     private Coach coach;
     private President president;
+    private static int clubCounter;
 
     /**
      * "Club" constructor class
@@ -22,6 +23,7 @@ public class Club {
      * @param abbreviation - club's abbreviation
      * @param coach - club's coach
      * @param president - club's president
+     * @param clubCounter - counter for created Club instances
      */
     public Club(String name, String abbreviation) {
         this.name = name;
@@ -32,6 +34,7 @@ public class Club {
         if (abbreviation.equals("") || abbreviation == null) {
             System.out.println("Club abbreviation is required");
         }
+        clubCounter += 1;
     }
 
     /**
@@ -112,6 +115,23 @@ public class Club {
      */
     public void setPresident(President president) {
         this.president = president;
+    }
+
+
+    /**
+     * Getter for counter for created Club instances
+     * @return counter for created Club instances
+     */
+    public static int getClubCounter() {
+        return clubCounter;
+    }
+
+    /**
+     *  Setter for counter for created Club instances
+     * @param clubCounter - counter for created Club instances
+     */
+    public static void setClubCounter(int clubCounter) {
+        Club.clubCounter = clubCounter;
     }
 
     /**

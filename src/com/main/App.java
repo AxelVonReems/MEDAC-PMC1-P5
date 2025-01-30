@@ -125,6 +125,12 @@ public class App {
         // Resetting transfer status for all players that were previously rejected
         resetTransferStatus(clubs.Atletico_Madrid);
         System.out.println(players.Griezmann.getTransferStatus());
+
+        // Printing static counter values
+        System.out.println("Player instance count is: " + Player.getPlayerCounter());
+        System.out.println("Coach instance count is: " + Coach.getCoachCounter());
+        System.out.println("President instance count is: " + President.getPresidentCounter());
+        System.out.println("Club instance count is: " + Club.getClubCounter());
     }
 
     static void playerTransfer(Player player, Club newClub) {

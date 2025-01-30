@@ -9,12 +9,14 @@ public class Coach {
     private String name;
     private Formation formation;
     private Club club;
+    private static int coachCounter;
 
     /**
      * "Coach" constructor class
      * @param name - coach's name
      * @param formation - coach's preferred formation
      * @param club - coach's current club
+     * @param coachCounter - counter for created Coach instances
      */
     public Coach(String name, Formation formation, Club club) {
         this.name = name;
@@ -30,6 +32,7 @@ public class Coach {
             System.out.println("Club is required");
         }
         System.out.println("Coach " + name + " was created.");
+        coachCounter += 1;
     }
 
     /**
@@ -78,6 +81,22 @@ public class Coach {
      */
     public void setClub(Club club) {
         this.club = club;
+    }
+
+    /**
+     * Getter for counter for created Coach instances
+     * @return counter for created Coach instances
+     */
+    public static int getCoachCounter() {
+        return coachCounter;
+    }
+
+    /**
+     * Setter for counter for created Coach instances
+     * @param coachCounter - counter for created Coach instances
+     */
+    public static void setCoachCounter(int coachCounter) {
+        Coach.coachCounter = coachCounter;
     }
 
     /**

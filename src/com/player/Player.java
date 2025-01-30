@@ -15,6 +15,7 @@ public class Player {
     private int squadNumber;
     private TransferStatus transferStatus;
     private Club club;
+    private static int playerCounter;
 
     /**
      * "Player" constructor class
@@ -25,6 +26,7 @@ public class Player {
      * @param squadNumber - player's squad number
      * @param transferStatus - player's transfer status
      * @param club - player's current club
+     * @param playerCounter - counter for created Player instances
      */
     public Player(
         String name,
@@ -64,6 +66,7 @@ public class Player {
             System.out.println("Club is required");
         }
         System.out.println("Player " + name + " was created.");
+        playerCounter += 1;
     }
 
     /**
@@ -197,7 +200,6 @@ public class Player {
         this.club = club;
     }
 
-
     /**
      * toString method for Players
      */
@@ -205,5 +207,21 @@ public class Player {
     public String toString() {
         return "Player [name=" + name + ", birthday=" + birthday + ", originCountry=" + originCountry + ", position=" +
         position + ", squadNumber=" + squadNumber + ", transferStatus=" + transferStatus + ", club=" + club.getName() + "]";
+    }
+
+    /**
+     * Getter for counter for created Player instances
+     * @return counter for created Player instances
+     */
+    public static int getPlayerCounter() {
+        return playerCounter;
+    }
+
+    /**
+     * Setter for counter for created Player instances
+     * @param playerCounter - counter for created Player instances
+     */
+    public static void setPlayerCounter(int playerCounter) {
+        Player.playerCounter = playerCounter;
     }
 }
