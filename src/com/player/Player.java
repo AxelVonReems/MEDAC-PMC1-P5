@@ -15,16 +15,17 @@ public class Player {
     private int squadNumber;
     private TransferStatus transferStatus;
     private Club club;
+    private static int playerCounter;
 
     /**
      * "Player" constructor class
-     * @param name - player's name
-     * @param birthday - player's date of birth
+     * @param name player's name
+     * @param birthday player's date of birth
      * @param originCountry - player's country of origin
-     * @param position - player's preferred position
-     * @param squadNumber - player's squad number
-     * @param transferStatus - player's transfer status
-     * @param club - player's current club
+     * @param position player's preferred position
+     * @param squadNumber player's squad number
+     * @param transferStatus player's transfer status
+     * @param club player's current club
      */
     public Player(
         String name,
@@ -64,6 +65,7 @@ public class Player {
             System.out.println("Club is required");
         }
         System.out.println("Player " + name + " was created.");
+        playerCounter += 1;
     }
 
     /**
@@ -76,7 +78,7 @@ public class Player {
 
     /**
      * Setter for player name
-     * @param name - player's name
+     * @param name player's name
      */
     public void setName(String name) {
         this.name = name;
@@ -95,7 +97,7 @@ public class Player {
 
     /**
      * Setter for player's birthday
-     * @param birthday - player's birthday
+     * @param birthday player's birthday
      */
     public void setBirthday(LocalDate birthday) {
         this.birthday = birthday;
@@ -114,7 +116,7 @@ public class Player {
 
     /**
      * Setter for player's country of origin
-     * @param originCountry - player's country of origin
+     * @param originCountry player's country of origin
      */
     public void setOriginCountry(String originCountry) {
         this.originCountry = originCountry;
@@ -133,7 +135,7 @@ public class Player {
 
     /**
      * Setter for player's position
-     * @param position - player's position
+     * @param position player's position
      */
     public void setPosition(Position position) {
         this.position = position;
@@ -152,7 +154,7 @@ public class Player {
 
     /**
      * Setter for player's squad number
-     * @param squadNumber - player's squad number
+     * @param squadNumber player's squad number
      */
     public void setSquadNumber(int squadNumber) {
         this.squadNumber = squadNumber;
@@ -171,7 +173,7 @@ public class Player {
 
     /**
      * Setter for player's transfer status
-     * @param transferStatus - player's transfer status
+     * @param transferStatus player's transfer status
      */
     public void setTransferStatus(TransferStatus transferStatus) {
         this.transferStatus = transferStatus;
@@ -191,12 +193,11 @@ public class Player {
     
     /**
      * Setter for player's current club
-     * @param club - player's current club
+     * @param club player's current club
      */
     public void setClub(Club club) {
         this.club = club;
     }
-
 
     /**
      * toString method for Players
@@ -205,5 +206,48 @@ public class Player {
     public String toString() {
         return "Player [name=" + name + ", birthday=" + birthday + ", originCountry=" + originCountry + ", position=" +
         position + ", squadNumber=" + squadNumber + ", transferStatus=" + transferStatus + ", club=" + club.getName() + "]";
+    }
+
+    /**
+     * Getter for counter for created Player instances
+     * @return counter for created Player instances
+     */
+    public static int getPlayerCounter() {
+        return playerCounter;
+    }
+
+    /**
+     * Setter for counter for created Player instances
+     * @param playerCounter counter for created Player instances
+     */
+    public static void setPlayerCounter(int playerCounter) {
+        Player.playerCounter = playerCounter;
+    }
+
+    /**
+     * Method for player transfer without confirmation
+     * @param newClub club, to which player will pe transfered
+     */
+    public void playerTransfer(Club newClub) {
+        this.getClub().getPlayerList().remove(this);
+        newClub.getPlayerList().add(this);
+        this.setClub(newClub);
+    }
+
+    /**
+     * Method to request player transfer
+     * @param newClub club, to which player will pe transfered
+     */
+    public void playerTransferRequest(Club newClub) {
+        if (this.getClub().getName().equals(newClub.getName())) {
+            System.out.println("Player " + this.getName() + " already playing for club " + newClub.getName());
+        } else if (
+            this.getTransferStatus() == TransferStatus.REJECTED_BY_COACH ||
+            this.getTransferStatus() == TransferStatus.REJECTED_BY_PRESIDENT) {
+            System.out.println("Transfer of " + this.getName() + " was already rejected previously");
+        } else {
+            this.setTransferStatus(TransferStatus.REQUESTED);
+            System.out.println("Player " + this.getName() + " has requested transfer to club " + newClub.getName());
+        }
     }
 }

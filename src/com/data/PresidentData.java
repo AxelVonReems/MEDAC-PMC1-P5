@@ -7,21 +7,35 @@ import com.president.President;
  */
 public class PresidentData {
 
-        // Barcelona
+    /**
+     * President of Barcelona
+     */
     public President Joan_Laporta;
 
-    // Real Madrid
+    /**
+     * President of Real Madrid
+     */
     public President Florentino_Perez;
 
-    // Atlético Madrid
+    /**
+     * President of Atlético Madrid
+     */
     public President Enrique_Cerezo;
 
-    // Celta Vigo
+    /**
+     * President of Celta Vigo
+     */
     public President Marian_Mourino_Terrazo;
 
-    // Rayo Vallecano
+    /**
+     * President of Rayo Vallecano
+     */
     public President Raul_Martin_Presa;
 
+    /**
+     * Function that creates clubs
+     * @param club instances of Club class
+     */
     public PresidentData(ClubData club) {
 
         // Barcelona

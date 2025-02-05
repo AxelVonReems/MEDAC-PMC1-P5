@@ -11,41 +11,58 @@ import com.player.TransferStatus;
  */
 public class PlayerData {
 
-    // Barcelona
+    /**
+     * Players of Barcelona
+     */
     public Player Ter_Stegen;
     public Player Balde;
     public Player Gavi;
     public Player Fermin;
     public Player Lewandowski;
 
-    // Real Madrid
+    /**
+     * Players of Real Madrid
+     */
     public Player Courtois;
     public Player Carvajal;
     public Player Modric;
     public Player Camavinga;
     public Player Mbappe;
 
-    // Atlético Madrid
+    /**
+     * Players of Atlético Madrid
+     */
     public Player Oblak;
     public Player Azpilicueta;
     public Player Barrios;
     public Player Lemar;
     public Player Griezmann;
 
-    // Celta Vigo
+    /**
+     * Players of Celta Vigo
+     */
     public Player Ivan_Villar;
     public Player Starfelt;
     public Player Hugo_Sotelo;
     public Player Ilaix_Moriba;
     public Player Douvikas;
 
-    // Rayo Vallecano
+    /**
+     * Players of Rayo Vallecano
+     */
     public Player Cardenas;
     public Player Andrei;
     public Player Pedro_Diaz;
     public Player Isi;
     public Player Camello;
 
+    /**
+     * Function that creates date of birth
+     * @param day day of birth
+     * @param month month of birth
+     * @param year year of birth
+     * @return date of birth
+     */
     public static LocalDate setDate(int day, int month, int year) {
         LocalDate date = LocalDate.of(year, month, month);
         return date;
@@ -53,6 +70,7 @@ public class PlayerData {
 
     /**
      * Function that creates players
+     * @param club instances of Club class
      */
     public PlayerData (ClubData club) {
 

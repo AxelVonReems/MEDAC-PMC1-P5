@@ -8,21 +8,34 @@ import com.club.Club;
 
 public class ClubData {
 
-    // Barcelona
+    /**
+     * Club Barcelona
+     */
     public Club Barcelona;
 
-    // Real Madrid
+    /**
+     * Club Real Madrid
+     */
     public Club Real_Madrid;
 
-    // Atlético Madrid
+    /**
+     * Club Atlético Madrid
+     */
     public Club Atletico_Madrid;
 
-    // Celta Vigo
+    /**
+     * Club Celta Vigo
+     */
     public Club Celta_Vigo;
 
-    // Rayo Vallecano
+    /**
+     * Club Rayo Vallecano
+     */
     public Club Rayo_Vallecano;
 
+    /**
+     * Function that creates clubs
+     */
     public ClubData() {
 
         // Barcelona
@@ -40,5 +53,4 @@ public class ClubData {
         // Rayo Vallecano
         Rayo_Vallecano = new Club("Rayo Vallecano", "RVC");
     }
-
 }
