@@ -17,6 +17,11 @@ import com.president.President;
  */
 public class App {
 
+    /**
+     * Main class of the application
+     * @param args an array of command-line arguments for the application
+     */
+
     public static void main(String[] args) throws Exception {
         // Data creation
 

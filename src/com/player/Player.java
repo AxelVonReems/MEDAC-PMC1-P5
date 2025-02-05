@@ -19,14 +19,13 @@ public class Player {
 
     /**
      * "Player" constructor class
-     * @param name - player's name
-     * @param birthday - player's date of birth
+     * @param name player's name
+     * @param birthday player's date of birth
      * @param originCountry - player's country of origin
-     * @param position - player's preferred position
-     * @param squadNumber - player's squad number
-     * @param transferStatus - player's transfer status
-     * @param club - player's current club
-     * @param playerCounter - counter for created Player instances
+     * @param position player's preferred position
+     * @param squadNumber player's squad number
+     * @param transferStatus player's transfer status
+     * @param club player's current club
      */
     public Player(
         String name,
@@ -79,7 +78,7 @@ public class Player {
 
     /**
      * Setter for player name
-     * @param name - player's name
+     * @param name player's name
      */
     public void setName(String name) {
         this.name = name;
@@ -98,7 +97,7 @@ public class Player {
 
     /**
      * Setter for player's birthday
-     * @param birthday - player's birthday
+     * @param birthday player's birthday
      */
     public void setBirthday(LocalDate birthday) {
         this.birthday = birthday;
@@ -117,7 +116,7 @@ public class Player {
 
     /**
      * Setter for player's country of origin
-     * @param originCountry - player's country of origin
+     * @param originCountry player's country of origin
      */
     public void setOriginCountry(String originCountry) {
         this.originCountry = originCountry;
@@ -136,7 +135,7 @@ public class Player {
 
     /**
      * Setter for player's position
-     * @param position - player's position
+     * @param position player's position
      */
     public void setPosition(Position position) {
         this.position = position;
@@ -155,7 +154,7 @@ public class Player {
 
     /**
      * Setter for player's squad number
-     * @param squadNumber - player's squad number
+     * @param squadNumber player's squad number
      */
     public void setSquadNumber(int squadNumber) {
         this.squadNumber = squadNumber;
@@ -174,7 +173,7 @@ public class Player {
 
     /**
      * Setter for player's transfer status
-     * @param transferStatus - player's transfer status
+     * @param transferStatus player's transfer status
      */
     public void setTransferStatus(TransferStatus transferStatus) {
         this.transferStatus = transferStatus;
@@ -194,7 +193,7 @@ public class Player {
     
     /**
      * Setter for player's current club
-     * @param club - player's current club
+     * @param club player's current club
      */
     public void setClub(Club club) {
         this.club = club;
@@ -219,7 +218,7 @@ public class Player {
 
     /**
      * Setter for counter for created Player instances
-     * @param playerCounter - counter for created Player instances
+     * @param playerCounter counter for created Player instances
      */
     public static void setPlayerCounter(int playerCounter) {
         Player.playerCounter = playerCounter;
@@ -227,7 +226,7 @@ public class Player {
 
     /**
      * Method for player transfer without confirmation
-     * @param newClub - club, to which player will pe transfered
+     * @param newClub club, to which player will pe transfered
      */
     public void playerTransfer(Club newClub) {
         this.getClub().getPlayerList().remove(this);
@@ -237,7 +236,7 @@ public class Player {
 
     /**
      * Method to request player transfer
-     * @param newClub - club, to which player will pe transfered
+     * @param newClub club, to which player will pe transfered
      */
     public void playerTransferRequest(Club newClub) {
         if (this.getClub().getName().equals(newClub.getName())) {

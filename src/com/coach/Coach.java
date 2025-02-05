@@ -15,10 +15,9 @@ public class Coach {
 
     /**
      * "Coach" constructor class
-     * @param name - coach's name
-     * @param formation - coach's preferred formation
-     * @param club - coach's current club
-     * @param coachCounter - counter for created Coach instances
+     * @param name coach's name
+     * @param formation coach's preferred formation
+     * @param club coach's current club
      */
     public Coach(String name, Formation formation, Club club) {
         this.name = name;
@@ -47,7 +46,7 @@ public class Coach {
 
     /**
      * Setter for coach's name
-     * @param name - coach's name
+     * @param name coach's name
      */
     public void setName(String name) {
         this.name = name;
@@ -63,7 +62,7 @@ public class Coach {
 
     /**
      * Setter for coach's preferred formation
-     * @param formation - coach's preferred formation
+     * @param formation coach's preferred formation
      */
     public void setFormation(Formation formation) {
         this.formation = formation;
@@ -79,7 +78,7 @@ public class Coach {
 
     /**
      * Setter for coach's current club
-     * @param club - coach's current club
+     * @param club coach's current club
      */
     public void setClub(Club club) {
         this.club = club;
@@ -95,7 +94,7 @@ public class Coach {
 
     /**
      * Setter for counter for created Coach instances
-     * @param coachCounter - counter for created Coach instances
+     * @param coachCounter counter for created Coach instances
      */
     public static void setCoachCounter(int coachCounter) {
         Coach.coachCounter = coachCounter;
@@ -111,9 +110,8 @@ public class Coach {
 
     /**
      * Method for transfer decision by a club's coach
-     * @param player - player that requested a transfer
-     * @param coach - coach, that will make the decision
-     * @param coachDecision - coach's decision: 0 - reject, 1 - approve
+     * @param player player that requested a transfer
+     * @param coachDecision coach's decision: 0 - reject, 1 - approve
      */
     public  void transferCoachDecision(Player player, int coachDecision) {
         if (

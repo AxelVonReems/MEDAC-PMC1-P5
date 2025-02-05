@@ -15,10 +15,9 @@ public class President {
 
     /**
      * "President" constructor class
-     * @param dni - president's DNI
-     * @param name - president's name
-     * @param club - president's current club
-     * @param presidentCounter - counter for created President instances
+     * @param dni president's DNI
+     * @param name president's name
+     * @param club president's current club
      */
     public President(String dni, String name, Club club) {
         this.dni = dni;
@@ -47,7 +46,7 @@ public class President {
 
     /**
      * Setter for president's DNI
-     * @param dni - president's DNI
+     * @param dni president's DNI
      */
     public void setDni(String dni) {
         this.dni = dni;
@@ -66,7 +65,7 @@ public class President {
 
     /**
      * Setter for president's name
-     * @param name - president's name
+     * @param name president's name
      */
     public void setName(String name) {
         this.name = name;
@@ -85,7 +84,7 @@ public class President {
 
     /**
      * Setter for president's current club
-     * @param club - president's name
+     * @param club president's name
      */
     public void setClub(Club club) {
         this.club = club;
@@ -101,7 +100,7 @@ public class President {
 
     /**
      * Setter for counter for created President instances
-     * @param presidentCounter - counter for created President instances
+     * @param presidentCounter counter for created President instances
      */
     public static void setPresidentCounter(int presidentCounter) {
         President.presidentCounter = presidentCounter;
@@ -117,8 +116,8 @@ public class President {
 
     /**
      * Method for transfer decision by a club's president
-     * @param player - player that requested a transfer
-     * @param presidentDecision - president's decision: 0 - reject, 1 - approve
+     * @param player player that requested a transfer
+     * @param presidentDecision president's decision: 0 - reject, 1 - approve
      */
     public void transferPresidentDecision(Player player, int presidentDecision) {
         if (

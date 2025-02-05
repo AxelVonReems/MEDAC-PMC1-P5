@@ -20,11 +20,8 @@ public class Club {
 
     /**
      * "Club" constructor class
-     * @param name - club's name
-     * @param abbreviation - club's abbreviation
-     * @param coach - club's coach
-     * @param president - club's president
-     * @param clubCounter - counter for created Club instances
+     * @param name club's name
+     * @param abbreviation club's abbreviation
      */
     public Club(String name, String abbreviation) {
         this.name = name;
@@ -48,7 +45,7 @@ public class Club {
 
     /**
      * Setter for club's name
-     * @param name - club's name
+     * @param name club's name
      */
     public void setName(String name) {
         this.name = name;
@@ -64,7 +61,7 @@ public class Club {
 
     /**
      * Setter for club's abbreviation
-     * @param abbreviation - club's abbreviation
+     * @param abbreviation club's abbreviation
      */
     public void setAbbreviation(String abbreviation) {
         this.abbreviation = abbreviation;
@@ -80,7 +77,7 @@ public class Club {
 
     /**
      * Setter for club's player list
-     * @param playerList - club's player list
+     * @param playerList club's player list
      */
     public void setPlayerList(ArrayList<Player> playerList) {
         this.playerList = playerList;
@@ -96,7 +93,7 @@ public class Club {
 
     /**
      * Setter for club's coach
-     * @param coach - club's coach
+     * @param coach club's coach
      */
     public void setCoach(Coach coach) {
         this.coach = coach;
@@ -112,7 +109,7 @@ public class Club {
 
     /**
      * Setter for club's president
-     * @param president - club's president
+     * @param president club's president
      */
     public void setPresident(President president) {
         this.president = president;
@@ -155,7 +152,7 @@ public class Club {
 
     /**
      * Method for processing fully approved player transfer
-     * @param player - player approved for transfer
+     * @param player player approved for transfer
      */
     public void approvedPlayerTransfer(Player player) {
         if (player.getTransferStatus() == TransferStatus.APPROVED_BY_PRESIDENT) {

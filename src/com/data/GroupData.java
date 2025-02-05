@@ -10,6 +10,13 @@ import com.player.Player;
  */
 public class GroupData {
 
+    /**
+     * Class for completing Club instances with player lists, coaches and presidents
+     * @param clubs instances of Club class
+     * @param players instances of Player class
+     * @param coaches instances of Coach class
+     * @param presidents instances of President class
+     */
     public static void ClubCreation(ClubData clubs, PlayerData players, CoachData coaches, PresidentData presidents) {
 
         // Adding players to clubs
