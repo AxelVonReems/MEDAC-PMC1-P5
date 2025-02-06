@@ -15,9 +15,9 @@ public class Coach {
 
     /**
      * "Coach" constructor class
-     * @param name coach's name
-     * @param formation coach's preferred formation
-     * @param club coach's current club
+     * @param name Coach name
+     * @param formation Coach preferred formation
+     * @param club Coach current club
      */
     public Coach(String name, Formation formation, Club club) {
         this.name = name;
@@ -37,48 +37,48 @@ public class Coach {
     }
 
     /**
-     * Getter for coach's name
-     * @return coach's name
+     * Getter for Coach name
+     * @return Coach name
      */
     public String getName() {
         return name;
     }
 
     /**
-     * Setter for coach's name
-     * @param name coach's name
+     * Setter for Coach name
+     * @param name Coach name
      */
     public void setName(String name) {
         this.name = name;
     }
 
     /**
-     * Getter for coach's preferred formation
-     * @return coach's preferred formation
+     * Getter for Coach preferred formation
+     * @return Coach preferred formation
      */
     public Formation getFormation() {
         return formation;
     }
 
     /**
-     * Setter for coach's preferred formation
-     * @param formation coach's preferred formation
+     * Setter for Coach preferred formation
+     * @param formation Coach preferred formation
      */
     public void setFormation(Formation formation) {
         this.formation = formation;
     }
 
         /**
-     * Getter for coach's current club
-     * @return coach's current club
+     * Getter for Coach current club
+     * @return Coach current club
      */
     public Club getClub() {
         return club;
     }
 
     /**
-     * Setter for coach's current club
-     * @param club coach's current club
+     * Setter for Coach current club
+     * @param club Coach current club
      */
     public void setClub(Club club) {
         this.club = club;
