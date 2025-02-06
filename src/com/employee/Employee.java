@@ -6,9 +6,9 @@ import java.time.LocalDate;
  * Abstract class for creating employees for clubs (players, coaches and presidents)
  */
 public abstract class Employee {
-    private String name;
-    private LocalDate birthday;
-    private String originCountry;
+    protected String name;
+    protected LocalDate birthday;
+    protected String originCountry;
 
     /**
      * Constructor for abstract class Employee
@@ -60,7 +60,7 @@ public abstract class Employee {
 
     /**
      * Setter for Employee birthday
-     * @param name Employee birthday
+     * @param birthday Employee birthday
      */
     public void setBirthday(LocalDate birthday) {
         this.birthday = birthday;
@@ -79,7 +79,7 @@ public abstract class Employee {
 
     /**
      * Setter for Employee country of origin
-     * @param name Employee country of origin
+     * @param originCountry Employee country of origin
      */
     public void setOriginCountry(String originCountry) {
         this.originCountry = originCountry;
@@ -118,4 +118,16 @@ public abstract class Employee {
      * Abstract method for printing employee's name and type
      */
     public abstract void showInfo();
+
+    /**
+     * Function that creates date of birth
+     * @param day day of birth
+     * @param month month of birth
+     * @param year year of birth
+     * @return date of birth
+     */
+    public static LocalDate setDate(int day, int month, int year) {
+        LocalDate date = LocalDate.of(year, month, month);
+        return date;
+    }
 }
