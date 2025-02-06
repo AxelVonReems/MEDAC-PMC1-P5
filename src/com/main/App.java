@@ -95,7 +95,5 @@ public class App {
         System.out.println("Coach instance count is: " + Coach.getCoachCounter());
         System.out.println("President instance count is: " + President.getPresidentCounter());
         System.out.println("Club instance count is: " + Club.getClubCounter());
-
-        System.out.println(presidents.Raul_Martin_Presa.toString());
     }
 }

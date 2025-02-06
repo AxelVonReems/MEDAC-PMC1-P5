@@ -1,14 +1,16 @@
 package com.coach;
 
+import java.time.LocalDate;
+
 import com.club.Club;
+import com.employee.Employee;
 import com.player.Player;
 import com.player.TransferStatus;
 
 /**
  * Class for creating "Coach" instances
  */
-public class Coach {
-    private String name;
+public class Coach extends Employee{
     private Formation formation;
     private Club club;
     private static int coachCounter;
@@ -16,16 +18,15 @@ public class Coach {
     /**
      * "Coach" constructor class
      * @param name Coach name
+     * @param birthday Coach date of birth
+     * @param originCountry Coach country of origin
      * @param formation Coach preferred formation
      * @param club Coach current club
      */
-    public Coach(String name, Formation formation, Club club) {
-        this.name = name;
+    public Coach(String name, LocalDate birthday, String originCountry, Formation formation, Club club) {
+        super(name, birthday, originCountry);
         this.formation = formation;
         this.club = club;
-        if (name.equals("") || name == null) {
-            System.out.println("Coach name is required");
-        }
         if (formation == null) {
             System.out.println("Formation is required");
         }
@@ -36,21 +37,6 @@ public class Coach {
         coachCounter += 1;
     }
 
-    /**
-     * Getter for Coach name
-     * @return Coach name
-     */
-    public String getName() {
-        return name;
-    }
-
-    /**
-     * Setter for Coach name
-     * @param name Coach name
-     */
-    public void setName(String name) {
-        this.name = name;
-    }
 
     /**
      * Getter for Coach preferred formation
@@ -105,7 +91,8 @@ public class Coach {
      */
     @Override
     public String toString() {
-        return "Coach [name=" + name + ", formation=" + formation + ", club=" + club.getName() + "]";
+        return "Coach [name=" + name + ", birthday=" + birthday + ", originCountry=" + originCountry + ", formation="
+                + formation + ", club=" + club.getName() + "]";
     }
 
     /**
@@ -132,5 +119,12 @@ public class Coach {
         } else if (!player.getClub().getName().equals(this.getClub().getName())) {
             System.out.println("Player " + player.getName() + " and coach " + this.getName() + " are from different clubs");
         }
+    }
+
+    /**
+     * Method for printing Employee name and type
+     */
+    public void showInfo(){
+        System.out.println("Employee's name is: " + name + ". Their type is: Coach");
     }
 }

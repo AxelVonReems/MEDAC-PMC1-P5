@@ -19,6 +19,8 @@ public class President extends Employee{
      * "President" constructor class
      * @param dni President DNI
      * @param name President name
+     * @param birthday President date of birth
+     * @param originCountry President country of origin
      * @param club President current club
      */
     public President(String dni, String name, LocalDate birthday, String originCountry, Club club) {
@@ -95,7 +97,7 @@ public class President extends Employee{
     @Override
     public String toString() {
         return "President [name=" + name + ", birthday=" + birthday + ", originCountry=" + originCountry + ", dni="
-                + dni + ", club=" + club + "]";
+                + dni + ", club=" + club.getName() + "]";
     }
 
     /**
