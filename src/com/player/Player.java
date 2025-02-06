@@ -3,14 +3,12 @@ package com.player;
 import java.time.LocalDate;
 
 import com.club.Club;
+import com.employee.Employee;
 
 /**
  * Class for creating "Player" instances
  */
-public class Player {
-    private String name;
-    private LocalDate birthday;
-    private String originCountry;
+public class Player extends Employee{
     private Position position;
     private int squadNumber;
     private TransferStatus transferStatus;
@@ -36,22 +34,11 @@ public class Player {
         TransferStatus transferStatus,
         Club club
     ) {
-        this.name = name;
-        this.birthday = birthday;
-        this.originCountry = originCountry;
+        super(name, birthday, originCountry);
         this.position = position;
         this.squadNumber = squadNumber;
         this.transferStatus = transferStatus;
         this.club = club;
-        if (name.equals("") || name == null) {
-            System.out.println("Player name is required");
-        }
-        if (birthday == null) {
-            System.out.println("Birthday is required");
-        }
-        if (originCountry.equals("")) {
-            System.out.println("Country of origin is required");
-        }
         if (position == null) {
             System.out.println("Position is required");
         }
@@ -206,6 +193,13 @@ public class Player {
     public String toString() {
         return "Player [name=" + name + ", birthday=" + birthday + ", originCountry=" + originCountry + ", position=" +
         position + ", squadNumber=" + squadNumber + ", transferStatus=" + transferStatus + ", club=" + club.getName() + "]";
+    }
+
+        /**
+     * Method for printing Employee name and type
+     */
+    public void showInfo(){
+        System.out.println("Employee's name is: " + name + ". Their type is: President");
     }
 
     /**
