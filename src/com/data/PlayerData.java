@@ -1,7 +1,5 @@
 package com.data;
 
-import java.time.LocalDate;
-
 import com.player.Player;
 import com.player.Position;
 import com.player.TransferStatus;
