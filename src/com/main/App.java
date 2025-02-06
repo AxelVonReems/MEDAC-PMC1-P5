@@ -1,5 +1,3 @@
-package com.main;
-
 import java.util.Random;
 
 import com.data.ClubData;
