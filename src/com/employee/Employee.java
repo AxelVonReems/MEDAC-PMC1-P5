@@ -16,7 +16,7 @@ public abstract class Employee {
      * @param birthday Employee date of birth
      * @param originCountry Employee country of origin
      */
-    public Employee(String name, LocalDate birthday, String originCountry) {
+    protected Employee(String name, LocalDate birthday, String originCountry) {
         this.name = name;
         this.birthday = birthday;
         this.originCountry = originCountry;
@@ -109,7 +109,7 @@ public abstract class Employee {
             );
         } else {
             System.out.println(
-                this.getName() + " is from " + this.getOriginCountry() + " and " + employee.getName() + "is from " + originCountry
+                this.getName() + " is from " + this.getOriginCountry() + " and " + employee.getName() + " is from " + employee.getOriginCountry()
             );
         }
     }

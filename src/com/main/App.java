@@ -31,7 +31,10 @@ public class App {
         PresidentData presidents = new PresidentData(clubs);
         GroupData.ClubCreation(clubs, players, coaches, presidents);
 
+        // Tests for the Practica 5
+
         // Testing player transfer
+
         System.out.println();
         System.out.println("Changing club for Griezmann");
         System.out.println("Current club is " + players.Griezmann.getClub().getName());
@@ -79,9 +82,9 @@ public class App {
 
         // Player transfer if approved
         clubs.Real_Madrid.approvedPlayerTransfer(players.Lewandowski);
-        System.out.println("Current club of " + players.Lewandowski.getName() + " is " + players.Lewandowski.getClub().getName());
 
-        // Printing player's current club and club lineups to verify correct transfer
+        // Printing player's current club lineups to verify correct transfer
+        System.out.println("Current club of " + players.Lewandowski.getName() + " is " + players.Lewandowski.getClub().getName());
         clubs.Barcelona.playerNamesList();
         clubs.Real_Madrid.playerNamesList();
 
@@ -91,9 +94,53 @@ public class App {
         System.out.println(players.Lewandowski.getTransferStatus());
 
         // Printing static counter values
+
         System.out.println("Player instance count is: " + Player.getPlayerCounter());
         System.out.println("Coach instance count is: " + Coach.getCoachCounter());
         System.out.println("President instance count is: " + President.getPresidentCounter());
         System.out.println("Club instance count is: " + Club.getClubCounter());
+
+        // Tests for the Practica 6
+
+        // Printing showInfo for each type of employee
+
+        players.Modric.showInfo();
+        coaches.Ancelotti.showInfo();
+        presidents.Marian_Mourino_Terrazo.showInfo();
+
+        // Printing sameCounty() method for players from same and different countries
+
+        players.Ter_Stegen.sameCountry(players.Douvikas);
+        players.Camello.sameCountry(players.Barrios);
+
+        // Complete player transfer simulation of Lemar from Atlético Madrid to Rayo Vallecano using interface methods
+
+        // Transfer requested by Lemar
+        players.Lemar.playerTransferRequest(clubs.Rayo_Vallecano);
+        System.out.println(players.Lemar.getTransferStatus());
+
+        // Transfer approval or rejection by coach
+        if (coachDecision == 1) {
+            coaches.Simeone.approveTransfer(players.Lemar);;
+        } else if (coachDecision == 0) {
+            coaches.Simeone.rejectTransfer(players.Lemar);
+        }
+        System.out.println(players.Lemar.getTransferStatus());
+
+        // Transfer approval or rejection by president
+        if (presidentDecision == 1) {
+            presidents.Enrique_Cerezo.approveTransfer(players.Lemar);;
+        } else if (presidentDecision == 0) {
+            presidents.Enrique_Cerezo.rejectTransfer(players.Lemar);
+        }
+        System.out.println(players.Lemar.getTransferStatus());
+
+        // Player transfer if approved
+        clubs.Rayo_Vallecano.approvedPlayerTransfer(players.Lemar);
+
+        // Printing player's current club and club lineups to verify correct transfer
+        System.out.println("Current club of " + players.Lemar.getName() + " is " + players.Lemar.getClub().getName());
+        clubs.Atletico_Madrid.playerNamesList();
+        clubs.Rayo_Vallecano.playerNamesList();
     }
 }
