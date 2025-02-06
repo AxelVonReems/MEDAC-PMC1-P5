@@ -15,9 +15,9 @@ public class President {
 
     /**
      * "President" constructor class
-     * @param dni president's DNI
-     * @param name president's name
-     * @param club president's current club
+     * @param dni President DNI
+     * @param name President name
+     * @param club President current club
      */
     public President(String dni, String name, Club club) {
         this.dni = dni;
@@ -37,16 +37,16 @@ public class President {
     }
 
     /**
-     * Getter for president's DNI
-     * @return president's DNI
+     * Getter for President DNI
+     * @return President DNI
      */
     public String getDni() {
         return dni;
     }
 
     /**
-     * Setter for president's DNI
-     * @param dni president's DNI
+     * Setter for President DNI
+     * @param dni President DNI
      */
     public void setDni(String dni) {
         this.dni = dni;
@@ -56,16 +56,16 @@ public class President {
     }
 
     /**
-     * Getter for president's name
-     * @return president's name
+     * Getter for President name
+     * @return President name
      */
     public String getName() {
         return name;
     }
 
     /**
-     * Setter for president's name
-     * @param name president's name
+     * Setter for President name
+     * @param name President name
      */
     public void setName(String name) {
         this.name = name;
@@ -75,16 +75,16 @@ public class President {
     }
 
     /**
-     * Getter for president's current club
-     * @return president's current club
+     * Getter for President current club
+     * @return President current club
      */
     public Club getClub() {
         return club;
     }
 
     /**
-     * Setter for president's current club
-     * @param club president's name
+     * Setter for President current club
+     * @param club President name
      */
     public void setClub(Club club) {
         this.club = club;

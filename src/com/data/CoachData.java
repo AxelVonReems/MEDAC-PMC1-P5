@@ -9,27 +9,27 @@ import com.coach.Formation;
 public class CoachData {
 
     /**
-     * Coach de Barcelona Hansi Flick
+     * Coach of Barcelona Hansi Flick
      */
     public Coach Hansi_Flick;
 
     /**
-     * Coach de Real Madrid Ancelotti
+     * Coach of Real Madrid Ancelotti
      */
     public Coach Ancelotti;
 
     /**
-     * Coach de Atlético Madrid Simeone
+     * Coach of Atlético Madrid Simeone
      */
     public Coach Simeone;
 
     /**
-     * Coach de Celta Vigo Claudio Giraldez
+     * Coach of Celta Vigo Claudio Giraldez
      */
     public Coach Claudio_Giraldez;
 
     /**
-     * Coach de Rayo Vallecano Iñigo Perez
+     * Coach of Rayo Vallecano Iñigo Perez
      */
     public Coach Iñigo_Perez;
 

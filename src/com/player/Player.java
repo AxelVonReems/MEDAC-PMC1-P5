@@ -19,13 +19,13 @@ public class Player {
 
     /**
      * "Player" constructor class
-     * @param name player's name
-     * @param birthday player's date of birth
-     * @param originCountry - player's country of origin
-     * @param position player's preferred position
-     * @param squadNumber player's squad number
-     * @param transferStatus player's transfer status
-     * @param club player's current club
+     * @param name Player name
+     * @param birthday Player date of birth
+     * @param originCountry Player country of origin
+     * @param position Player preferred position
+     * @param squadNumber Player squad number
+     * @param transferStatus Player transfer status
+     * @param club Player current club
      */
     public Player(
         String name,
@@ -69,16 +69,16 @@ public class Player {
     }
 
     /**
-     * Getter for player name
-     * @return player's name
+     * Getter for Player name
+     * @return Player name
      */
     public String getName() {
         return name;
     }
 
     /**
-     * Setter for player name
-     * @param name player's name
+     * Setter for Player name
+     * @param name Player name
      */
     public void setName(String name) {
         this.name = name;
@@ -88,16 +88,16 @@ public class Player {
     }
 
     /**
-     * Getter for player's birthday
-     * @return player's birthday
+     * Getter for Player birthday
+     * @return Player birthday
      */
     public LocalDate getBirthday() {
         return birthday;
     }
 
     /**
-     * Setter for player's birthday
-     * @param birthday player's birthday
+     * Setter for Player birthday
+     * @param birthday Player birthday
      */
     public void setBirthday(LocalDate birthday) {
         this.birthday = birthday;
@@ -107,16 +107,16 @@ public class Player {
     }
 
     /**
-     * Getter for player's country of origin
-     * @return player's country of origin
+     * Getter for Player country of origin
+     * @return Player country of origin
      */
     public String getOriginCountry() {
         return originCountry;
     }
 
     /**
-     * Setter for player's country of origin
-     * @param originCountry player's country of origin
+     * Setter for Player country of origin
+     * @param originCountry Player country of origin
      */
     public void setOriginCountry(String originCountry) {
         this.originCountry = originCountry;
@@ -126,16 +126,16 @@ public class Player {
     }
 
     /**
-     * Getter for player's position
-     * @return player's position
+     * Getter for Player position
+     * @return Player position
      */
     public Position getPosition() {
         return position;
     }
 
     /**
-     * Setter for player's position
-     * @param position player's position
+     * Setter for Player position
+     * @param position Player position
      */
     public void setPosition(Position position) {
         this.position = position;
@@ -145,16 +145,16 @@ public class Player {
     }
 
     /**
-     * Getter for player's squad number
-     * @return player's squad number
+     * Getter for Player squad number
+     * @return Player squad number
      */
     public int getSquadNumber() {
         return squadNumber;
     }
 
     /**
-     * Setter for player's squad number
-     * @param squadNumber player's squad number
+     * Setter for Player squad number
+     * @param squadNumber Player squad number
      */
     public void setSquadNumber(int squadNumber) {
         this.squadNumber = squadNumber;
@@ -164,16 +164,16 @@ public class Player {
     }
 
     /**
-     * Getter for player's transfer status
-     * @return player's transfer status
+     * Getter for Player transfer status
+     * @return Player transfer status
      */
     public TransferStatus getTransferStatus() {
         return transferStatus;
     }
 
     /**
-     * Setter for player's transfer status
-     * @param transferStatus player's transfer status
+     * Setter for Player transfer status
+     * @param transferStatus Player transfer status
      */
     public void setTransferStatus(TransferStatus transferStatus) {
         this.transferStatus = transferStatus;
@@ -183,8 +183,8 @@ public class Player {
     }
 
     /**
-     * Getter for player's current club
-     * @return player's current club
+     * Getter for Player current club
+     * @return Player current club
      */
     public Club getClub() {
         return club;
@@ -192,8 +192,8 @@ public class Player {
 
     
     /**
-     * Setter for player's current club
-     * @param club player's current club
+     * Setter for Player current club
+     * @param club Player current club
      */
     public void setClub(Club club) {
         this.club = club;
