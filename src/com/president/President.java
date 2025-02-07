@@ -1,27 +1,32 @@
 package com.president;
 
+import java.time.LocalDate;
+
 import com.club.Club;
+import com.employee.Employee;
 import com.player.Player;
 import com.player.TransferStatus;
+import com.transferManager.TransferManager;
 
 /**
  * Class for creating "President" instances
  */
-public class President {
+public class President extends Employee implements TransferManager{
     private String dni;
-    private String name;
     private Club club;
     private static int presidentCounter;
 
     /**
      * "President" constructor class
-     * @param dni president's DNI
-     * @param name president's name
-     * @param club president's current club
+     * @param dni President DNI
+     * @param name President name
+     * @param birthday President date of birth
+     * @param originCountry President country of origin
+     * @param club President current club
      */
-    public President(String dni, String name, Club club) {
+    public President(String dni, String name, LocalDate birthday, String originCountry, Club club) {
+        super(name, birthday, originCountry);
         this.dni = dni;
-        this.name = name;
         this.club = club;
         if (dni.equals("") || dni == null) {
             System.out.println("President DNI is required");
@@ -37,16 +42,16 @@ public class President {
     }
 
     /**
-     * Getter for president's DNI
-     * @return president's DNI
+     * Getter for President DNI
+     * @return President DNI
      */
     public String getDni() {
         return dni;
     }
 
     /**
-     * Setter for president's DNI
-     * @param dni president's DNI
+     * Setter for President DNI
+     * @param dni President DNI
      */
     public void setDni(String dni) {
         this.dni = dni;
@@ -56,35 +61,16 @@ public class President {
     }
 
     /**
-     * Getter for president's name
-     * @return president's name
-     */
-    public String getName() {
-        return name;
-    }
-
-    /**
-     * Setter for president's name
-     * @param name president's name
-     */
-    public void setName(String name) {
-        this.name = name;
-        if (name.equals("") || name == null) {
-            System.out.println("President name is required");
-        }
-    }
-
-    /**
-     * Getter for president's current club
-     * @return president's current club
+     * Getter for President current club
+     * @return President current club
      */
     public Club getClub() {
         return club;
     }
 
     /**
-     * Setter for president's current club
-     * @param club president's name
+     * Setter for President current club
+     * @param club President name
      */
     public void setClub(Club club) {
         this.club = club;
@@ -111,25 +97,47 @@ public class President {
      */
     @Override
     public String toString() {
-        return "President [dni=" + dni + ", name=" + name + ", club=" + club.getName() + "]";
+        return "President [name=" + name + ", birthday=" + birthday + ", originCountry=" + originCountry + ", dni="
+                + dni + ", club=" + club.getName() + "]";
     }
 
     /**
-     * Method for transfer decision by a club's president
-     * @param player player that requested a transfer
-     * @param presidentDecision president's decision: 0 - reject, 1 - approve
+     * Method for printing Employee name and type
      */
-    public void transferPresidentDecision(Player player, int presidentDecision) {
+    public void showInfo(){
+        System.out.println("Employee's name is: " + name + ". Their type is: President");
+    }
+
+    /**
+     * Interface method for approving transfer by a club's president
+     * @param player player that requested a transfer
+     */
+    public void approveTransfer(Player player) {
         if (
             player.getTransferStatus() == TransferStatus.APPROVED_BY_COACH &&
-            player.getClub().getName().equals(this.getClub().getName()) &&
-            presidentDecision == 1) {
+            player.getClub().getName().equals(this.getClub().getName())
+        ) {
             player.setTransferStatus(TransferStatus.APPROVED_BY_PRESIDENT);
             System.out.println("Transfer of " + player.getName() + " was approved by " + this.getName());
-        } else if (
+        } else if (player.getTransferStatus() == TransferStatus.REJECTED_BY_COACH) {
+            System.out.println(
+                "Transfer of " + player.getName() + " was previously rejected by " + player.getClub().getCoach().getName()
+                );
+        } else if (!player.getClub().getName().equals(this.getClub().getName())) {
+            System.out.println(
+                "Player " + player.getName() + " and president " + this.getName() + " are from different clubs"
+                );
+        }
+    }
+
+    /**
+     * Interface method for rejecting transfer by a club's president
+     * @param player player that requested a transfer
+     */
+    public void rejectTransfer(Player player) {
+        if (
             player.getTransferStatus() == TransferStatus.APPROVED_BY_COACH &&
-            player.getClub().getName().equals(this.getClub().getName()) &&
-            presidentDecision == 0
+            player.getClub().getName().equals(this.getClub().getName())
         ) {
             player.setTransferStatus(TransferStatus.REJECTED_BY_PRESIDENT);
             System.out.println("Transfer of " + player.getName() + " was rejected by " + this.getName());
@@ -137,8 +145,6 @@ public class President {
             System.out.println(
                 "Transfer of " + player.getName() + " was previously rejected by " + player.getClub().getCoach().getName()
                 );
-        } else if (player.getTransferStatus() != TransferStatus.REJECTED_BY_PRESIDENT) {
-            System.out.println("Player " + player.getName() + " haven't requested transfer or was previously rejected");
         } else if (!player.getClub().getName().equals(this.getClub().getName())) {
             System.out.println(
                 "Player " + player.getName() + " and president " + this.getName() + " are from different clubs"

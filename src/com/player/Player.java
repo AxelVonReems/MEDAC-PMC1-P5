@@ -3,14 +3,12 @@ package com.player;
 import java.time.LocalDate;
 
 import com.club.Club;
+import com.employee.Employee;
 
 /**
  * Class for creating "Player" instances
  */
-public class Player {
-    private String name;
-    private LocalDate birthday;
-    private String originCountry;
+public class Player extends Employee{
     private Position position;
     private int squadNumber;
     private TransferStatus transferStatus;
@@ -19,13 +17,13 @@ public class Player {
 
     /**
      * "Player" constructor class
-     * @param name player's name
-     * @param birthday player's date of birth
-     * @param originCountry - player's country of origin
-     * @param position player's preferred position
-     * @param squadNumber player's squad number
-     * @param transferStatus player's transfer status
-     * @param club player's current club
+     * @param name Player name
+     * @param birthday Player date of birth
+     * @param originCountry Player country of origin
+     * @param position Player preferred position
+     * @param squadNumber Player squad number
+     * @param transferStatus Player transfer status
+     * @param club Player current club
      */
     public Player(
         String name,
@@ -36,22 +34,11 @@ public class Player {
         TransferStatus transferStatus,
         Club club
     ) {
-        this.name = name;
-        this.birthday = birthday;
-        this.originCountry = originCountry;
+        super(name, birthday, originCountry);
         this.position = position;
         this.squadNumber = squadNumber;
         this.transferStatus = transferStatus;
         this.club = club;
-        if (name.equals("") || name == null) {
-            System.out.println("Player name is required");
-        }
-        if (birthday == null) {
-            System.out.println("Birthday is required");
-        }
-        if (originCountry.equals("")) {
-            System.out.println("Country of origin is required");
-        }
         if (position == null) {
             System.out.println("Position is required");
         }
@@ -69,73 +56,16 @@ public class Player {
     }
 
     /**
-     * Getter for player name
-     * @return player's name
-     */
-    public String getName() {
-        return name;
-    }
-
-    /**
-     * Setter for player name
-     * @param name player's name
-     */
-    public void setName(String name) {
-        this.name = name;
-        if (name.equals("") || name == null) {
-            System.out.println("Player name is required");
-        }
-    }
-
-    /**
-     * Getter for player's birthday
-     * @return player's birthday
-     */
-    public LocalDate getBirthday() {
-        return birthday;
-    }
-
-    /**
-     * Setter for player's birthday
-     * @param birthday player's birthday
-     */
-    public void setBirthday(LocalDate birthday) {
-        this.birthday = birthday;
-        if (birthday == null) {
-            System.out.println("Birthday is required");
-        }
-    }
-
-    /**
-     * Getter for player's country of origin
-     * @return player's country of origin
-     */
-    public String getOriginCountry() {
-        return originCountry;
-    }
-
-    /**
-     * Setter for player's country of origin
-     * @param originCountry player's country of origin
-     */
-    public void setOriginCountry(String originCountry) {
-        this.originCountry = originCountry;
-        if (originCountry.equals("")) {
-            System.out.println("Country of origin is required");
-        }
-    }
-
-    /**
-     * Getter for player's position
-     * @return player's position
+     * Getter for Player position
+     * @return Player position
      */
     public Position getPosition() {
         return position;
     }
 
     /**
-     * Setter for player's position
-     * @param position player's position
+     * Setter for Player position
+     * @param position Player position
      */
     public void setPosition(Position position) {
         this.position = position;
@@ -145,16 +75,16 @@ public class Player {
     }
 
     /**
-     * Getter for player's squad number
-     * @return player's squad number
+     * Getter for Player squad number
+     * @return Player squad number
      */
     public int getSquadNumber() {
         return squadNumber;
     }
 
     /**
-     * Setter for player's squad number
-     * @param squadNumber player's squad number
+     * Setter for Player squad number
+     * @param squadNumber Player squad number
      */
     public void setSquadNumber(int squadNumber) {
         this.squadNumber = squadNumber;
@@ -164,16 +94,16 @@ public class Player {
     }
 
     /**
-     * Getter for player's transfer status
-     * @return player's transfer status
+     * Getter for Player transfer status
+     * @return Player transfer status
      */
     public TransferStatus getTransferStatus() {
         return transferStatus;
     }
 
     /**
-     * Setter for player's transfer status
-     * @param transferStatus player's transfer status
+     * Setter for Player transfer status
+     * @param transferStatus Player transfer status
      */
     public void setTransferStatus(TransferStatus transferStatus) {
         this.transferStatus = transferStatus;
@@ -183,8 +113,8 @@ public class Player {
     }
 
     /**
-     * Getter for player's current club
-     * @return player's current club
+     * Getter for Player current club
+     * @return Player current club
      */
     public Club getClub() {
         return club;
@@ -192,11 +122,14 @@ public class Player {
 
     
     /**
-     * Setter for player's current club
-     * @param club player's current club
+     * Setter for Player current club
+     * @param club Player current club
      */
     public void setClub(Club club) {
         this.club = club;
+        if (club == null) {
+            System.out.println("Club is required");
+        }
     }
 
     /**
@@ -206,6 +139,13 @@ public class Player {
     public String toString() {
         return "Player [name=" + name + ", birthday=" + birthday + ", originCountry=" + originCountry + ", position=" +
         position + ", squadNumber=" + squadNumber + ", transferStatus=" + transferStatus + ", club=" + club.getName() + "]";
+    }
+
+    /**
+     * Method for printing Employee name and type
+     */
+    public void showInfo(){
+        System.out.println("Employee's name is: " + name + ". Their type is: Player");
     }
 
     /**

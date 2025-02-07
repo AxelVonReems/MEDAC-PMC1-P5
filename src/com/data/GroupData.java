@@ -9,7 +9,6 @@ import com.player.Player;
  * Class for completing Club instances with player lists, coaches and presidents
  */
 public class GroupData {
-
     /**
      * Class for completing Club instances with player lists, coaches and presidents
      * @param clubs instances of Club class

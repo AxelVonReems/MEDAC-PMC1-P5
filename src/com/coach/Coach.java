@@ -1,31 +1,33 @@
 package com.coach;
 
+import java.time.LocalDate;
+
 import com.club.Club;
+import com.employee.Employee;
 import com.player.Player;
 import com.player.TransferStatus;
+import com.transferManager.TransferManager;
 
 /**
  * Class for creating "Coach" instances
  */
-public class Coach {
-    private String name;
+public class Coach extends Employee implements TransferManager{
     private Formation formation;
     private Club club;
     private static int coachCounter;
 
     /**
      * "Coach" constructor class
-     * @param name coach's name
-     * @param formation coach's preferred formation
-     * @param club coach's current club
+     * @param name Coach name
+     * @param birthday Coach date of birth
+     * @param originCountry Coach country of origin
+     * @param formation Coach preferred formation
+     * @param club Coach current club
      */
-    public Coach(String name, Formation formation, Club club) {
-        this.name = name;
+    public Coach(String name, LocalDate birthday, String originCountry, Formation formation, Club club) {
+        super(name, birthday, originCountry);
         this.formation = formation;
         this.club = club;
-        if (name.equals("") || name == null) {
-            System.out.println("Coach name is required");
-        }
         if (formation == null) {
             System.out.println("Formation is required");
         }
@@ -37,48 +39,32 @@ public class Coach {
     }
 
     /**
-     * Getter for coach's name
-     * @return coach's name
-     */
-    public String getName() {
-        return name;
-    }
-
-    /**
-     * Setter for coach's name
-     * @param name coach's name
-     */
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    /**
-     * Getter for coach's preferred formation
-     * @return coach's preferred formation
+     * Getter for Coach preferred formation
+     * @return Coach preferred formation
      */
     public Formation getFormation() {
         return formation;
     }
 
     /**
-     * Setter for coach's preferred formation
-     * @param formation coach's preferred formation
+     * Setter for Coach preferred formation
+     * @param formation Coach preferred formation
      */
     public void setFormation(Formation formation) {
         this.formation = formation;
     }
 
         /**
-     * Getter for coach's current club
-     * @return coach's current club
+     * Getter for Coach current club
+     * @return Coach current club
      */
     public Club getClub() {
         return club;
     }
 
     /**
-     * Setter for coach's current club
-     * @param club coach's current club
+     * Setter for Coach current club
+     * @param club Coach current club
      */
     public void setClub(Club club) {
         this.club = club;
@@ -105,25 +91,43 @@ public class Coach {
      */
     @Override
     public String toString() {
-        return "Coach [name=" + name + ", formation=" + formation + ", club=" + club.getName() + "]";
+        return "Coach [name=" + name + ", birthday=" + birthday + ", originCountry=" + originCountry + ", formation="
+                + formation + ", club=" + club.getName() + "]";
     }
 
     /**
-     * Method for transfer decision by a club's coach
-     * @param player player that requested a transfer
-     * @param coachDecision coach's decision: 0 - reject, 1 - approve
+     * Method for printing Employee name and type
      */
-    public  void transferCoachDecision(Player player, int coachDecision) {
+    public void showInfo(){
+        System.out.println("Employee's name is: " + name + ". Their type is: Coach");
+    }
+
+    /**
+     * Interface method for approving transfer by a club's coach
+     * @param player player that requested a transfer
+     */
+    public  void approveTransfer(Player player) {
         if (
             player.getTransferStatus() == TransferStatus.REQUESTED &&
-            player.getClub().getName().equals(this.getClub().getName()) &&
-            coachDecision == 1) {
+            player.getClub().getName().equals(this.getClub().getName())
+        ) {
             player.setTransferStatus(TransferStatus.APPROVED_BY_COACH);
             System.out.println("Transfer of " + player.getName() + " was approved by " + this.getName());
-        } else if (
+        } else if (player.getTransferStatus() != TransferStatus.REQUESTED) {
+            System.out.println("Player " + player.getName() + " haven't requested transfer or was previously rejected");
+        } else if (!player.getClub().getName().equals(this.getClub().getName())) {
+            System.out.println("Player " + player.getName() + " and coach " + this.getName() + " are from different clubs");
+        }
+    }
+
+    /**
+     * Interface method for rejecting transfer by a club's coach
+     * @param player player that requested a transfer
+     */
+    public  void rejectTransfer(Player player) {
+        if (
             player.getTransferStatus() == TransferStatus.REQUESTED &&
-            player.getClub().getName().equals(this.getClub().getName()) &&
-            coachDecision == 0
+            player.getClub().getName().equals(this.getClub().getName())
         ) {
             player.setTransferStatus(TransferStatus.REJECTED_BY_COACH);
             System.out.println("Transfer of " + player.getName() + " was rejected by " + this.getName());
