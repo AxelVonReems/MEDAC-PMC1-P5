@@ -116,7 +116,7 @@ public abstract class Employee {
 
     /**
      * Method for checking if two employees have same country of origin
-     * @param employee
+     * @param employee Employee instance to compare against
      */
     public void sameCountry(Employee employee) {
         if (this.getOriginCountry().equals("") || employee.getOriginCountry().equals("")) {

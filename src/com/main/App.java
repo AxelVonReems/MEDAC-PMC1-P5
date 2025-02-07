@@ -8,7 +8,6 @@ import com.data.GroupData;
 import com.data.PlayerData;
 import com.data.PresidentData;
 import com.employee.Employee;
-import com.player.Player;
 
 /**
  * Main class of the application

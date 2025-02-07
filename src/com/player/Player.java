@@ -56,63 +56,6 @@ public class Player extends Employee{
     }
 
     /**
-     * Getter for Player name
-     * @return Player name
-     */
-    public String getName() {
-        return name;
-    }
-
-    /**
-     * Setter for Player name
-     * @param name Player name
-     */
-    public void setName(String name) {
-        this.name = name;
-        if (name.equals("") || name == null) {
-            System.out.println("Player name is required");
-        }
-    }
-
-    /**
-     * Getter for Player birthday
-     * @return Player birthday
-     */
-    public LocalDate getBirthday() {
-        return birthday;
-    }
-
-    /**
-     * Setter for Player birthday
-     * @param birthday Player birthday
-     */
-    public void setBirthday(LocalDate birthday) {
-        this.birthday = birthday;
-        if (birthday == null) {
-            System.out.println("Birthday is required");
-        }
-    }
-
-    /**
-     * Getter for Player country of origin
-     * @return Player country of origin
-     */
-    public String getOriginCountry() {
-        return originCountry;
-    }
-
-    /**
-     * Setter for Player country of origin
-     * @param originCountry Player country of origin
-     */
-    public void setOriginCountry(String originCountry) {
-        this.originCountry = originCountry;
-        if (originCountry.equals("")) {
-            System.out.println("Country of origin is required");
-        }
-    }
-
-    /**
      * Getter for Player position
      * @return Player position
      */
@@ -184,6 +127,9 @@ public class Player extends Employee{
      */
     public void setClub(Club club) {
         this.club = club;
+        if (club == null) {
+            System.out.println("Club is required");
+        }
     }
 
     /**
@@ -195,7 +141,7 @@ public class Player extends Employee{
         position + ", squadNumber=" + squadNumber + ", transferStatus=" + transferStatus + ", club=" + club.getName() + "]";
     }
 
-        /**
+    /**
      * Method for printing Employee name and type
      */
     public void showInfo(){
