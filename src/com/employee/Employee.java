@@ -9,6 +9,7 @@ public abstract class Employee {
     protected String name;
     protected LocalDate birthday;
     protected String originCountry;
+    protected static int employeeCounter;
 
     /**
      * Constructor for abstract class Employee
@@ -29,6 +30,7 @@ public abstract class Employee {
         if (originCountry.equals("")) {
             System.out.println("Country of origin is required");
         }
+        employeeCounter += 1;
     }
 
     /**
@@ -86,6 +88,22 @@ public abstract class Employee {
         if (originCountry.equals("")) {
             System.out.println("Country of origin is required");
         }
+    }
+
+    /**
+     * Getter for counter for created Employee instances
+     * @return counter for created Employee instances
+     */
+    public static int getEmployeeCounter() {
+        return employeeCounter;
+    }
+
+    /**
+     * Setter for counter for created Employee instances
+     * @param employeeCounter counter for created Employee instances
+     */
+    public static void setEmployeeCounter(int employeeCounter) {
+        Employee.employeeCounter = employeeCounter;
     }
 
     /**

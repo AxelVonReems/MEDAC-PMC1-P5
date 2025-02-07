@@ -5,9 +5,7 @@ import com.club.Club;
 /**
  * This class creates "Club" instances
  */
-
 public class ClubData {
-
     /**
      * Club Barcelona
      */

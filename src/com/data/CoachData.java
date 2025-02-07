@@ -8,7 +8,6 @@ import com.employee.Employee;
  * This class creates "Coach" instances
  */
 public class CoachData {
-
     /**
      * Coach of Barcelona Hansi Flick
      */

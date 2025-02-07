@@ -7,7 +7,6 @@ import com.employee.Employee;
  * This class creates "President" instances
  */
 public class PresidentData {
-
     /**
      * President of Barcelona
      */

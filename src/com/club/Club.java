@@ -115,7 +115,6 @@ public class Club {
         this.president = president;
     }
 
-
     /**
      * Getter for counter for created Club instances
      * @return counter for created Club instances

@@ -9,7 +9,6 @@ import com.employee.Employee;
  * This class creates "Player" instances
  */
 public class PlayerData {
-
     /**
      * Players of Barcelona
      */
