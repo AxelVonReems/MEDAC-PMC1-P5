@@ -6,11 +6,12 @@ import com.club.Club;
 import com.employee.Employee;
 import com.player.Player;
 import com.player.TransferStatus;
+import com.transferManager.TransferManager;
 
 /**
  * Class for creating "President" instances
  */
-public class President extends Employee{
+public class President extends Employee implements TransferManager{
     private String dni;
     private Club club;
     private static int presidentCounter;
@@ -108,21 +109,35 @@ public class President extends Employee{
     }
 
     /**
-     * Method for transfer decision by a club's president
+     * Interface method for approving transfer by a club's president
      * @param player player that requested a transfer
-     * @param presidentDecision president's decision: 0 - reject, 1 - approve
      */
-    public void transferPresidentDecision(Player player, int presidentDecision) {
+    public void approveTransfer(Player player) {
         if (
             player.getTransferStatus() == TransferStatus.APPROVED_BY_COACH &&
-            player.getClub().getName().equals(this.getClub().getName()) &&
-            presidentDecision == 1) {
+            player.getClub().getName().equals(this.getClub().getName())
+        ) {
             player.setTransferStatus(TransferStatus.APPROVED_BY_PRESIDENT);
             System.out.println("Transfer of " + player.getName() + " was approved by " + this.getName());
-        } else if (
+        } else if (player.getTransferStatus() == TransferStatus.REJECTED_BY_COACH) {
+            System.out.println(
+                "Transfer of " + player.getName() + " was previously rejected by " + player.getClub().getCoach().getName()
+                );
+        } else if (!player.getClub().getName().equals(this.getClub().getName())) {
+            System.out.println(
+                "Player " + player.getName() + " and president " + this.getName() + " are from different clubs"
+                );
+        }
+    }
+
+    /**
+     * Interface method for rejecting transfer by a club's president
+     * @param player player that requested a transfer
+     */
+    public void rejectTransfer(Player player) {
+        if (
             player.getTransferStatus() == TransferStatus.APPROVED_BY_COACH &&
-            player.getClub().getName().equals(this.getClub().getName()) &&
-            presidentDecision == 0
+            player.getClub().getName().equals(this.getClub().getName())
         ) {
             player.setTransferStatus(TransferStatus.REJECTED_BY_PRESIDENT);
             System.out.println("Transfer of " + player.getName() + " was rejected by " + this.getName());
@@ -130,8 +145,6 @@ public class President extends Employee{
             System.out.println(
                 "Transfer of " + player.getName() + " was previously rejected by " + player.getClub().getCoach().getName()
                 );
-        } else if (player.getTransferStatus() != TransferStatus.REJECTED_BY_PRESIDENT) {
-            System.out.println("Player " + player.getName() + " haven't requested transfer or was previously rejected");
         } else if (!player.getClub().getName().equals(this.getClub().getName())) {
             System.out.println(
                 "Player " + player.getName() + " and president " + this.getName() + " are from different clubs"

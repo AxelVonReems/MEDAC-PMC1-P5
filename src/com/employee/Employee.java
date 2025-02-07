@@ -9,6 +9,7 @@ public abstract class Employee {
     protected String name;
     protected LocalDate birthday;
     protected String originCountry;
+    protected static int employeeCounter;
 
     /**
      * Constructor for abstract class Employee
@@ -16,7 +17,7 @@ public abstract class Employee {
      * @param birthday Employee date of birth
      * @param originCountry Employee country of origin
      */
-    public Employee(String name, LocalDate birthday, String originCountry) {
+    protected Employee(String name, LocalDate birthday, String originCountry) {
         this.name = name;
         this.birthday = birthday;
         this.originCountry = originCountry;
@@ -29,6 +30,7 @@ public abstract class Employee {
         if (originCountry.equals("")) {
             System.out.println("Country of origin is required");
         }
+        employeeCounter += 1;
     }
 
     /**
@@ -89,6 +91,22 @@ public abstract class Employee {
     }
 
     /**
+     * Getter for counter for created Employee instances
+     * @return counter for created Employee instances
+     */
+    public static int getEmployeeCounter() {
+        return employeeCounter;
+    }
+
+    /**
+     * Setter for counter for created Employee instances
+     * @param employeeCounter counter for created Employee instances
+     */
+    public static void setEmployeeCounter(int employeeCounter) {
+        Employee.employeeCounter = employeeCounter;
+    }
+
+    /**
      * toString method for Employee
      */
     @Override
@@ -98,7 +116,7 @@ public abstract class Employee {
 
     /**
      * Method for checking if two employees have same country of origin
-     * @param employee
+     * @param employee Employee instance to compare against
      */
     public void sameCountry(Employee employee) {
         if (this.getOriginCountry().equals("") || employee.getOriginCountry().equals("")) {
@@ -109,7 +127,7 @@ public abstract class Employee {
             );
         } else {
             System.out.println(
-                this.getName() + " is from " + this.getOriginCountry() + " and " + employee.getName() + "is from " + originCountry
+                this.getName() + " is from " + this.getOriginCountry() + " and " + employee.getName() + " is from " + employee.getOriginCountry()
             );
         }
     }
