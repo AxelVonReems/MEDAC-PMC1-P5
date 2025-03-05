@@ -105,7 +105,7 @@ public class President extends Employee implements TransferManager{
      * Method for printing Employee name and type
      */
     public void showInfo(){
-        System.out.println("Employee's name is: " + name + ". Their type is: President");
+        System.out.println("Employee's name is: " + name + ". Their type is: " + this.getClass().getSimpleName());
     }
 
     /**
